@@ -16,18 +16,8 @@ pipeline {
                 googleStorageUpload (
                     bucket: 'gs://asia-northeast1-clp-dwh-air-3ba3d227-bucket/dags',
                     credentialsId: 'clp-avex-dwh-poc',
-                    pattern: 'dags_iret_test_composer.py'
+                    pattern: 'dags_test_composer.py'
                 )
-            }
-        }
-        stage('gcloud ssh'){
-            steps {
-                sh '''
-                set -ex
-                date
-                cat test.txt
-                gcloud beta compute --project "agms-poc-secure" ssh --zone "asia-northeast1-a" "agms-poc-secure-embulk01" --tunnel-through-iap -- "sudo su embulk -c 'id'"
-                '''
             }
         }
     }
