@@ -17,7 +17,7 @@ default_dag_args = {
 gcloud_command = """
 curl httpbin.org/ip
 gcloud config list
-gcloud beta compute --project "cloudpack-rd-vpcsc-private" ssh --zone "asia-northeast1-a" "clp-private-embulk01" --tunnel-through-iap -- "sudo su embulk -c 'id'"
+gcloud beta compute --project "cloudpack-rd-vpcsc-private" ssh --zone "asia-northeast1-a" "clp-private-embulk01" --tunnel-through-iap -- "sudo su embulk run /opt/embulk/config.yml"
 """.strip()
 
 # Define a DAG (directed acyclic graph) of tasks.
