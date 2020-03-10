@@ -20,5 +20,14 @@ pipeline {
                 )
             }
         }
+        stage('gcloud ssh'){
+            steps {
+                sh '''
+                set -ex
+                date
+                gcloud beta compute --project "cloudpack-rd-vpcsc-private" ssh --zone "asia-northeast1-a" "clp-private-embulk01" --tunnel-through-iap -- "sudo su embulk run /opt/embulk/config.yml"
+                '''
+            }
+        }
     }
 }
