@@ -27,7 +27,7 @@ gcloud beta compute --project "cloudpack-rd-vpcsc-private" ssh --zone "asia-nort
 # Any task you create within the context manager is automatically added to the
 # DAG object.
 with models.DAG(
-        'composer_sample_gcloud_ssh',
+        'composer_sample_gcloud_ssh_2',
         schedule_interval=datetime.timedelta(days=1),
         default_args=default_dag_args) as dag:
     def greeting():
